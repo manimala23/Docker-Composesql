@@ -3,16 +3,16 @@ version: '3.3'
 services:
   mysql:
     image: mysql:5.7
-    container_name: mysql_container
-    ports:
+        volumes:
+          - mysql_data:/var/lib/mysql
+        ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: your_root_password
-      MYSQL_DATABASE: your_database_name
-      MYSQL_USER: your_username
-      MYSQL_PASSWORD: your_password
-    volumes:
-      - mysql_data:/var/lib/mysql
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: sql
+      MYSQL_USER: mani
+      MYSQL_PASSWORD: sql
+
 
 volumes:
-  mysql_data:
+  mysql_data: {}
